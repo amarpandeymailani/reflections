@@ -1,0 +1,81 @@
+How did viewing a diff between two versions of a file help you see the bug that
+was introduced?
+
+         because i can detect the typo error which is occured during my second version of code.
+         automatically line by line diff. given .
+
+How could having easy access to the entire history of a file make you a more
+efficient programmer in the long term?
+
+may be in long term the time would be so important ....i can do more work in less time.
+     because i can easily compare my files and learn and improve my self.
+
+What do you think are the pros and cons of manually choosing when to create a
+commit, like you do in Git, vs having versions automatically saved, like Google
+docs does?
+
+  pros.  fully depends on us we can choose whether to save versions or not.
+  cons.    sometimes we can make error and forget to commit .
+
+
+ Why do you think some version control systems, like Git, allow saving multiple
+  files in one commit, while others, like Google Docs, treat each file separately?
+
+      because udacity told me.
+
+How can you use the commands git log and git diff to view the history of files?
+
+    git log == for viewing commit history .
+      git diff id1 id2 == for comparing two versions .//where id1&2 is commit id's.
+
+How might using version control make you more confident to make changes that
+could break something?
+    using git checkout we can find the bug introduced in a paricular commmit.
+
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+    i will use git as a version control for a project.
+
+ If you were to put "git diff" on the map, which of the following existing concept(s) would you directly connect it with?
+
+commit
+Google Docs
+git  === right ans.
+Version Control
+
+ ***////git log == for viewing commit history .
+      git diff id1 id2 == for comparing two versions .
+      git log --stat == which gives an statistics about which file have changed in each commit.
+      ++++ === indicates addition of word or files.
+      ---- === indicates deletion of word or files.
+      git checkout id === restore to the previous version.(till that version id.)
+      contol + z === to exit from editor and to close it.
+      ls -a === for viewing all files in a directory.
+      git init === for creating a repository in a working directory.
+      git status === it shows which files have changed since the last commit.
+
+
+
+
+
+      Cloning a Repository
+To clone a repository, run git clone followed by a space and the repository URL.
+
+Asteroids URL
+Use the following url to clone the Asteroids repository: https://github.com/udacity/asteroids.git
+
+Exiting git log
+To stop viewing git log output, press q (which stands for quit).
+
+Getting Colored Output
+To get colored diff output, run git config --global color.ui auto
+
+Copying and Pasting from the Command Line
+To complete this quiz, you'll want to copy and paste some commit ids.
+
+Windows
+To copy and paste within Git Bash, follow the instructions on this page.
+
+Mac
+To copy and paste within the terminal on Mac, use Cmd+C and Cmd+V
