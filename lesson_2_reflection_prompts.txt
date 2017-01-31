@@ -22,3 +22,4 @@ manually?
 
 //  git add === it is used to add a file in the staging area . ( a area where commit will be bundeled .)
     git reset === used to remove a file from staging area.
+    git commit === it is used to commit the changes.
