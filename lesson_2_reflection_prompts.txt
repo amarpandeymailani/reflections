@@ -3,23 +3,73 @@ What happens when you initialize a repository? Why do you need to do it?
 
 How is the staging area different from the working directory and the repository?
 What value do you think it offers?
-      staging area is area which makes a controlls over commit ...it gives a ggod choice t o user to make commit.
+      staging area is area which makes a controlls over commit ...it gives a ggod choice t o user to make commit.it contains the files for next commit after adding changes to a file.( phle changes krro phrr staging area me daloo then commit krro).
+        also the staging area is a copy of the most recent commit until i add changes to it.
 
 How can you use the staging area to make sure you have one commit per logical
 change?
+  i think above answer is satisfactory.(above quest. answer)
+
 
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
+  when i want to do some different experimental task on my project then it would be very helpful to create a new branch and then code under it. so that my main project remained safe.
+
 
 How do the diagrams help you visualize the branch structure?
+       because it exactly shows the commit history in the way different branches implemented them.
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
 
+
 What are the pros and cons of Git’s automatic merging vs. always doing merges
 manually?
+     automatic merging leads when there is no conflict between branches while when conflict occures git always asks for merging solution from user.
 
 
-//  git add === it is used to add a file in the staging area . ( a area where commit will be bundeled .)
-    git reset === used to remove a file from staging area.
+//  git add filename === it is used to add a file in the staging area . ( a area where commit will be bundeled .)
+    git reset filename === used to remove a file from staging area.
     git commit === it is used to commit the changes.
+    git diff === it is used to compare the working directory and staging area.(files) it shows all the changes that u have not added yet in the staging area.
+    // git diff --staged === used to compare the most recent commit and staging arae files.
+    git reset --hard === used to discard the changes either in working directory or staging area.
+    git branch === listing no. of branches.
+    git branch branchname === creating a new branch.
+    git checkout branchname === now u are in a  branchname branch.
+    git log --graph --oneline bname1 2 .. === a visualising graph of every branch commit history.
+     git checkout -b newbname === git branch branchname + git checkout branchname (equal to two commands.)
+     git merge bname1...2   === to merge branches.
+     git merge will also include the currently checked-out branch in the merged version. So if you have branch1 checked out, and you run git merge branch2 branch3, the merged version will combine branch1 as well as branch2 and branch3. That’s because the branch1 label will update after you make the merge commit, so it’s unlikely that you didn’t want the changes from branch1 included in the merge. For this reason, you should always checkout one of the two branches you’re planning on merging before doing the merge. Which one you should check out depends on which branch label you want to point to the new commit.
+
+     Since the checked-out branch is always included in the merge, you may have guessed that when you are merging two branches, you don't need to specify both of them as arguments to git merge on the command line. If you want to merge branch2 into branch1, you can simply git checkout branch1 and then type git merge branch2. The only reason to type git merge branch1 branch2 is if it helps you keep better mental track of which branches you are merging.
+
+
+     //The command Caroline mentions to compare a commit to its parent is "git show commit_id".
+     git branch -d bname === to delete the branch(not commit history).
+
+
+
+
+
+
+    repository === it is a collection of several committed files.
+    working directory === it is your harddisk directory.
+
+    Merge conflict
+If you get a message like this
+
+Auto-merging game.js
+CONFLICT (content): Merge conflict in game.js
+Automatic merge failed; fix conflicts and then commit the result.
+then your files were not in the same state as Caroline's when you started the merge. To fix this, complete the following steps:
+Restore your files to their state before you started the merge by running git merge --abort
+Double check the state of your files. If you run git log while the master branch is checked out, you should see Caroline's "Add color" commit as the second-most-recent, and the most recent should be your commit fixing the bullet bug. If you use git diff to compare your commit to Caroline's, your commit should introduce the line this.delayBeforeBullet = 10; on line 424. The line should be indented to the same level as the line below it using only spaces (no tabs), and the line should have no spaces after it.
+Once your file is in the correct state, create a new commit with your changes.
+Try the merge again.
+Merge conflict (Newline characters between Windows and Unix systems)
+Context: Whenever we hit the "Enter" key on the keyboard, we are actually telling the computer to insert an invisible character into our text file to indicate to the computer that there should be a new line. Unix systems adds one character called the "line feed" character or LF or \n while Windows systems adds two characters, "carriage return" and "line feed" or CRLF or \r\n.
+
+Caroline's files have LF because her files were edited on Mac OSX, which uses LF. If a Windows user were to edit Caroline's files, the Windows text editor might convert all LF to CRLF to make editing files possible. When the Windows user merges her file with Caroline's files, a merge conflict will result due to the different LF and CRLF characters.
+
+To fix this, Windows users should set the global autocrlf attribute to true: git config --global core.autocrlf true. More information can be found here: https://help.github.com/articles/dealing-with-line-endings/#platform-all
